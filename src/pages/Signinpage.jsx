@@ -26,7 +26,7 @@ export const Signinpage = () => {
       if (result.status === 200) {
         const token = result.data.token;
         const refreshToken = result.data.refreshToken;
-        console.log(result);
+        // console.log(result);
         localStorage.setItem("token", token);
         localStorage.setItem("refreshToken", refreshToken);
         return navigate("/user");
@@ -39,14 +39,14 @@ export const Signinpage = () => {
         }, 5000);
       }
       if (error.response.status === 404) {
-        console.log(404);
+        // console.log(404);
         setUserNotFoundAlert(true);
         setTimeout(() => {
           setUserNotFoundAlert(false);
         }, 5000);
       }
       if (error.response.status === 400) {
-        console.log(400);
+        // console.log(400);
 
         setInvalidPasswordAlert(true);
         setTimeout(() => {

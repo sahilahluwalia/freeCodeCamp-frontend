@@ -24,27 +24,27 @@ export const Userpage = () => {
       if (result.status === 200) {
         localStorage.setItem("token", result.data.token);
         setToken(result.data.token);
-        console.log("Token reused");
+        // console.log("Token reused");
       }
     } catch (e) {
       console.log(e);
-      console.log("renew token error");
+      // console.log("renew token error");
     }
   };
   const fetcher = async () => {
     try {
-      console.log(token);
+      // console.log(token);
       const result = await axios.get(baseURL + "/api/getdata", config);
-      console.log("API RECIVED DATA ");
+      // console.log("API RECIVED DATA ");
       // if (result.response.status === 403) {
       //   console.log("token gone");
       // }
-      console.log(result.data);
-      console.log(result);
+      // console.log(result.data);
+      // console.log(result);
       setCardData(result.data);
     } catch (e) {
-      console.log("error");
-      console.log(e);
+      // console.log("error");
+      // console.log(e);
       renewToken();
       // if (e.response.status === 403) {
       //   console.log("token gone");
@@ -53,8 +53,8 @@ export const Userpage = () => {
     }
   };
   const tokenchecker = () => {
-    console.log("token value is ");
-    console.log(token);
+    // console.log("token value is ");
+    // console.log(token);
     if (token == null) {
       navigate("/");
     }

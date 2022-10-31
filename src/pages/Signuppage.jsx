@@ -27,21 +27,21 @@ export const Signuppage = () => {
       }, 5000);
       return;
     }
-    console.log({ email, password });
+    // console.log({ email, password });
 
     try {
       const result = await axios.post(baseURL + "/api/auth/signup", {
         email: email,
         password: password,
       });
-      console.log("result is");
-      console.log(result);
+      // console.log("result is");
+      // console.log(result);
       if (result.status === 201) {
         return navigate("/user");
       }
     } catch (error) {
-      console.log("error");
-      console.log(error);
+      // console.log("error");
+      // console.log(error);
       if (error.response.status === 403) {
         setUserExist(true);
         setTimeout(() => {
@@ -49,14 +49,14 @@ export const Signuppage = () => {
         }, 5000);
       }
       if (error.response.status === 404) {
-        console.log(error.response.status);
+        // console.log(error.response.status);
         setAlert(true);
         setTimeout(() => {
           setAlert(false);
         }, 5000);
       }
       if (error.response.status === 500) {
-        console.log(error.response.status);
+        // console.log(error.response.status);
         setEmptyValueAlert(true);
         setTimeout(() => {
           setEmptyValueAlert(false);

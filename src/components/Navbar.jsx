@@ -12,12 +12,22 @@ const Navbar = (props) => {
   return (
     <div className="flex justify-between bg-blue-900 ">
       <div className="my-auto pl-10 ">
-        
-        <input
-          type="text"
-          className="rounded pl-4 bg-gray-500 placeholder-gray-200"
-          placeholder="Search 8000+ tutorials"
-        />
+        <div className="searchbar flex">
+          <svg  className="h-5 mt-[1px] z-10 pl-3"
+            fill="#fff"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 30 30"
+            width="30px"
+            height="30px"
+          >
+            <path d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z" />
+          </svg>
+          <input
+            type="text"
+            className="rounded relative right-6 pl-8 bg-gray-500 placeholder-gray-200"
+            placeholder="Search 8000+ tutorials"
+          />
+        </div>
       </div>
       <div className="text-white p-3 text-xl font-medium">freeCodeCamp</div>
       <div className="my-auto flex ">
