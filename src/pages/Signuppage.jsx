@@ -28,7 +28,7 @@ export const Signuppage = () => {
       return;
     }
     console.log({ email, password });
-    const payload = { email: email, password: password };
+
     try {
       const result = await axios.post(baseURL + "/api/auth/signup", {
         email: email,
@@ -37,7 +37,7 @@ export const Signuppage = () => {
       console.log("result is");
       console.log(result);
       if (result.status === 201) {
-        return navigate("/");
+        return navigate("/user");
       }
     } catch (error) {
       console.log("error");

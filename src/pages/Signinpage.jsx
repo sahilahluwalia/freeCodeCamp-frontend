@@ -15,7 +15,7 @@ export const Signinpage = () => {
   const [password, setPassword] = useState("");
   const handleSignin = async (e) => {
     e.preventDefault();
-    const payload = { email: email, password: password };
+
     try {
       const result = await axios.post(baseURL + "/api/auth/signin", {
         email: email,
@@ -23,8 +23,13 @@ export const Signinpage = () => {
       });
       console.log("result is");
       console.log(result);
-      if (result.status === 201) {
-        return navigate("/");
+      if (result.status === 200) {
+        const token = result.data.token;
+        const refreshToken = result.data.refreshToken;
+        console.log(result);
+        localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", refreshToken);
+        return navigate("/user");
       }
     } catch (error) {
       if (error.response.status === 500) {
