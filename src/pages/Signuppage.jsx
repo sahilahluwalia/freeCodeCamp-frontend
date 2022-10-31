@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Alert } from "../components/Alert";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const baseURL = process.env.REACT_APP_LINK;
 
 export const Signuppage = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -15,8 +16,16 @@ export const Signuppage = () => {
   const [userExist, setUserExist] = useState(false);
   const [emptyValue, setEmptyValueAlert] = useState(false);
   const [alert, setAlert] = useState(false);
+  const token = localStorage.getItem("token");
+  const tokenchecker = () => {
+    if (token) {
+      navigate("/user");
+    }
+  };
 
-  let navigate = useNavigate();
+  useEffect(() => {
+    tokenchecker();
+  }, []);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -37,6 +46,10 @@ export const Signuppage = () => {
       // console.log("result is");
       // console.log(result);
       if (result.status === 201) {
+        const token = result.data.token;
+        const refreshToken = result.data.refreshToken;
+        localStorage.setItem("token", token);
+        localStorage.setItem("refreshToken", refreshToken);
         return navigate("/user");
       }
     } catch (error) {

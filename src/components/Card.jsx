@@ -18,7 +18,7 @@ export const Card = (props) => {
             <div className="w-10 ">
               <img
                 src={`data:image/svg+xml;utf8,${decoder(obj?.svg)}`}
-                alt="svg image from db"
+                alt="svg icon from db"
               />
             </div>
             <p className="font-normal mt-2">{obj?.text}</p>
