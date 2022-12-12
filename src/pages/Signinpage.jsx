@@ -107,6 +107,11 @@ export const Signinpage = () => {
               </p>
             </Link>
           </div>
+          <div className="box mt-5 bg-blue-600 p-4 rounded text-white">
+            <p>Sample Account</p>
+            <p>email: sample@gmail.com</p>
+            <p>password: sample123</p>
+          </div>
         </div>
       </div>
     </>
